@@ -51,18 +51,4 @@ public class InsiderPage {
     @FindBy(xpath = "//selection[@id=career-our-location]")
     public WebElement locationSlade;
 
-    public void applyButtonControl() {
-        Actions actions = new Actions(Driver.getDriver());
-        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
-        for (int i = 1; i < 3; i++) {
-            WebElement applyButton = Driver.getDriver().
-                    findElement(By.xpath("(//a[@class='btn btn-navy rounded pt-2 pr-5 pb-2 pl-5'])[" + i + "]"));
-            actions.moveToElement(applyButton).perform();
-            assertTrue(applyButton.isDisplayed());
-        }
-        WebElement applyButton = Driver.getDriver().
-                findElement(By.xpath("(//a[@class='btn btn-navy rounded pt-2 pr-5 pb-2 pl-5'])[3]"));
-        jse.executeScript("arguments[0].click()", applyButton);
-    }
-
 }
