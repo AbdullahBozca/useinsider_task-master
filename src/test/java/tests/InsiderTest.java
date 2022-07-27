@@ -29,12 +29,14 @@ public class InsiderTest extends TestBaseRapor {
         Driver.getDriver().get(ConfigReader.getProperty("insiderURL"));
         JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
         extentTest.info("https://useinsider.com/ page opened");
+
         InsiderPage insiderPage = new InsiderPage();
         insiderPage.cookieButton.click();
         jse.executeScript("arguments[0].click()", insiderPage.moreButton);
         insiderPage.careersButton.click();
         assertTrue(insiderPage.teamsWebElement.isDisplayed());
         extentTest.pass("Teams opened");
+
         assertTrue(insiderPage.locationsWebelement.isDisplayed());
         extentTest.pass("Locations opened");
 
